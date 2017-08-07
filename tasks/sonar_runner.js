@@ -13,9 +13,10 @@ var childProcess = require('child_process'), format = require('util').format, os
 module.exports = function (grunt) {
     var SONAR_RUNNER_HOME = process.env.SONAR_RUNNER_HOME || __dirname+'/../sonar-runner-2.4';
     var SONAR_RUNNER_OPTS = process.env.SONAR_RUNNER_OPTS || "";
+    var JAVA_HOME = process.env.JAVA_HOME + '/bin' || "";
 
     var JAR = SONAR_RUNNER_HOME + '/lib/sonar-runner-dist-2.4.jar';
-    var SONAR_RUNNER_COMMAND = 'java ' + SONAR_RUNNER_OPTS + ' -jar "' + JAR + '" -Drunner.home="' + SONAR_RUNNER_HOME + '"';
+    var SONAR_RUNNER_COMMAND = JAVA_HOME + 'java ' + SONAR_RUNNER_OPTS + ' -jar "' + JAR + '" -Drunner.home="' + SONAR_RUNNER_HOME + '"';
     var LIST_CMD = (/^win/).test(os.platform()) ? 'dir "' + JAR + '"' : 'ls "' + JAR + '"';
 
     var mergeOptions = function (prefix, effectiveOptions, obj) {
