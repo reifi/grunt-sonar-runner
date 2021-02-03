@@ -32,6 +32,8 @@ sonarRunner: {
                 debug: true,
                 separator: '\n',
                 sonar: {
+                    login: 'admin',
+                    password: 'admin',
                     host: {
                         url: 'http://localhost:9000'
                     },
@@ -184,6 +186,8 @@ grunt.initConfig({
                       separator: '\n',
                       dryRun: false,
                       sonar: {
+                          login: 'admin',
+                          password: 'admin',                          
                           host: {
                               url: 'http://localhost:9000'
                           },
